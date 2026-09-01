@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyglot House | Language Academy, Dublin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ind:#2d3a8c;--ind2:#1f2a6b;--y:#f5d76e;--mist:#f4f6fb;--ink:#1a1f36;--mu:#5c6585;--sh:0 14px 40px rgba(31,42,107,.08);--r:18px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",system-ui,sans-serif;background:var(--mist);color:var(--ink)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:1.1rem 1.2rem 5rem}
+    .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;gap:1rem}
+    .logo{font-family:"Fraunces",serif;font-size:1.45rem;color:var(--ind)}
+    .logo span{color:var(--ink);font-style:italic;margin-left:.2rem}
+    .meta{display:flex;align-items:center;gap:.7rem}
+    .pill{background:#fff;border-radius:999px;padding:.35rem .75rem;font-size:.78rem;color:var(--mu);box-shadow:var(--sh)}
+    .av{width:36px;height:36px;border-radius:50%;background:var(--ind);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700}
+    .tabbar{display:flex;gap:.35rem;background:#fff;padding:.4rem;border-radius:14px;box-shadow:var(--sh);margin-bottom:1.2rem;flex-wrap:wrap}
+    .tabbar button{flex:1;min-width:90px;border:0;background:0;padding:.75rem .4rem;border-radius:10px;font-family:inherit;font-size:.86rem;font-weight:600;color:var(--mu);cursor:pointer;transition:background .25s,color .25s}
+    .tabbar button.on{background:var(--ind);color:#fff}
+    .selw{display:none}
+    .ws{background:#fff;border-radius:var(--r);box-shadow:var(--sh);min-height:58vh;overflow:hidden}
+    .panel{padding:1.8rem;animation:fs .35s ease}
+    .panel[hidden]{display:none!important}
+    @keyframes fs{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .ph{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;margin-bottom:1.4rem}
+    h1,h2.sec{font-family:"Fraunces",serif;font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.3rem}
+    .ph p,.lede{color:var(--mu)}
+    .chip{background:var(--y);color:var(--ink);border-radius:999px;padding:.45rem .85rem;font-size:.78rem;font-weight:700;white-space:nowrap}
+    .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .card{border:1px solid #eceff7;border-radius:16px;padding:1.15rem;background:#fbfcff;transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+    .flag{width:42px;height:42px;border-radius:12px;background:var(--ind);color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:.7rem}
+    .card h2,.card h3{font-size:1.15rem;margin-bottom:.35rem}
+    .card p{color:var(--mu);font-size:.92rem;line-height:1.5}
+    .badges{display:flex;flex-wrap:wrap;gap:.35rem;margin:.8rem 0}
+    .badges span{font-size:.7rem;background:#eef1fb;color:var(--ind);padding:.25rem .5rem;border-radius:999px;font-weight:600}
+    .bar{height:8px;background:#e7ebf7;border-radius:999px;overflow:hidden;margin-top:.35rem}
+    .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ind),#6b7cff);border-radius:999px}
+    .prog span{font-size:.72rem;color:var(--mu)}
+    table{width:100%;border-collapse:collapse;font-size:.92rem}
+    th{text-align:left;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);padding:.6rem .5rem;border-bottom:1px solid #eceff7}
+    td{padding:.85rem .5rem;border-bottom:1px solid #f0f2f8}
+    .tw{overflow-x:auto}
+    .btn{background:var(--ind);color:#fff;border:0;border-radius:10px;padding:.7rem 1rem;font-family:inherit;font-weight:600;cursor:pointer}
+    .btn:hover{background:var(--ind2)}
+    .btn-t{padding:.45rem .7rem;font-size:.75rem}
+    .btn-g{background:#eef1fb;color:var(--ind)}
+    .tutor img{width:100%;height:190px;object-fit:cover;border-radius:12px;margin-bottom:.75rem}
+    .rating{margin-top:.55rem;font-size:.82rem;font-weight:700;color:var(--ind)}
+    .price{font-family:"Fraunces",serif;font-size:2rem;margin:.4rem 0 .8rem}
+    .price span{font-size:.9rem;color:var(--mu)}
+    .pc ul{list-style:none;margin-bottom:1.1rem;color:var(--mu)}
+    .pc li{padding:.3rem 0}
+    .feat{background:var(--ind);color:#fff;border-color:var(--ind)}
+    .feat ul,.feat .price span{color:rgba(255,255,255,.8)}
+    .feat .btn{background:var(--y);color:var(--ink)}
+    .tag{display:inline-block;background:var(--y);color:var(--ink);font-size:.7rem;font-weight:700;padding:.2rem .5rem;border-radius:999px;margin-bottom:.5rem}
+    .about{display:grid;grid-template-columns:1.4fr 1fr;gap:1.4rem}
+    .about h2{font-family:"Fraunces",serif;margin-bottom:.7rem}
+    .about p{color:var(--mu);line-height:1.7;margin-bottom:.8rem}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .stats div{background:var(--mist);border-radius:14px;padding:1rem}
+    .stats strong{display:block;font-family:"Fraunces",serif;font-size:1.55rem;color:var(--ind)}
+    .stats span{font-size:.8rem;color:var(--mu)}
+    .hero-banner{display:grid;grid-template-columns:1.2fr .8fr;gap:1.2rem;margin-bottom:1.4rem;align-items:center}
+    .hero-banner img{width:100%;height:260px;object-fit:cover;border-radius:16px}
+    .hero-banner h2{font-family:"Fraunces",serif;font-size:1.8rem;margin-bottom:.5rem}
+    .hero-banner p{color:var(--mu);line-height:1.65}
+    .method{margin:1.6rem 0}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:1rem}
+    .steps article{background:var(--mist);border-radius:14px;padding:1rem}
+    .steps b{display:block;color:var(--ind);font-size:.75rem;letter-spacing:.12em;margin-bottom:.4rem}
+    .campus{margin-top:1.6rem}
+    .campus img{width:100%;height:220px;object-fit:cover;border-radius:14px;margin:1rem 0}
+    .rev{display:grid;gap:.8rem;margin-top:1rem}
+    .rev blockquote{background:var(--mist);border-radius:14px;padding:1.1rem;line-height:1.6;color:var(--mu)}
+    .rev cite{display:block;margin-top:.5rem;font-style:normal;color:var(--ink);font-weight:600;font-size:.85rem}
+    .faq details{border-bottom:1px solid #eceff7;padding:.85rem 0}
+    .faq summary{cursor:pointer;font-weight:600}
+    .faq p{color:var(--mu);margin-top:.45rem;line-height:1.6}
+    input,select,textarea{border:1px solid #e3e7f3;border-radius:10px;padding:.75rem;font-family:inherit}
+    .ok{color:var(--ind);font-weight:600}
+    .strip{display:flex;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.82rem;color:var(--mu);flex-wrap:wrap}
+    .fab{position:fixed;right:1.2rem;bottom:1.2rem;z-index:40;background:var(--y);color:var(--ink);border:0;border-radius:999px;padding:.95rem 1.2rem;font-family:inherit;font-weight:700;box-shadow:0 10px 30px rgba(245,215,110,.45);cursor:pointer}
+    .modal{position:fixed;inset:0;background:rgba(26,31,54,.45);display:grid;place-items:center;z-index:50;padding:1rem}
+    .modal[hidden]{display:none}
+    .mc{background:#fff;border-radius:18px;padding:1.5rem;width:min(420px,100%);position:relative}
+    .mc h2{font-family:"Fraunces",serif;margin-bottom:.3rem}
+    .mc p{color:var(--mu);margin-bottom:1rem}
+    .mc form{display:grid;gap:.6rem}
+    .x{position:absolute;top:.6rem;right:.8rem;border:0;background:0;font-size:1.4rem;cursor:pointer}
+    .level-row{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0 1.2rem}
+    .level-row button{border:1px solid #e3e7f3;background:#fff;border-radius:999px;padding:.4rem .75rem;font-family:inherit;font-size:.78rem;cursor:pointer}
+    .level-row button.on{background:var(--ind);color:#fff;border-color:var(--ind)}
+    .path{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    @media(max-width:900px){
+      .tabbar{display:none}
+      .selw{display:grid;gap:.35rem;margin-bottom:1rem;font-size:.75rem;font-weight:600;color:var(--mu)}
+      .selw select{width:100%;border:0;background:#fff;border-radius:12px;padding:.9rem;font-family:inherit;font-size:1rem;font-weight:600;box-shadow:var(--sh)}
+      .g2,.g3,.g4,.about,.hero-banner,.steps,.path{grid-template-columns:1fr}
+      .panel{padding:1.2rem}
+      .ph{flex-direction:column}
+      .fab{left:1rem;right:1rem}
+      .hero-banner img,.campus img,.tutor img{height:200px}
+      .strip{flex-direction:column;gap:.3rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="logo" href="#">Polyglot<span>House</span></a>
+      <div class="meta"><span class="pill">Dublin · Academic Row</span><span class="av">PH</span></div>
+    </header>
+    <nav class="tabbar" id="tabbar">
+      <button class="on" data-p="home">Home</button>
+      <button data-p="courses">Courses</button>
+      <button data-p="live">Live Classes</button>
+      <button data-p="tutors">Tutors</button>
+      <button data-p="method">Method</button>
+      <button data-p="pricing">Pricing</button>
+      <button data-p="campus">Campus</button>
+      <button data-p="about">About</button>
+    </nav>
+    <label class="selw">Section
+      <select id="tabSelect">
+        <option value="home">Home</option>
+        <option value="courses">Courses</option>
+        <option value="live">Live Classes</option>
+        <option value="tutors">Tutors</option>
+        <option value="method">Method</option>
+        <option value="pricing">Pricing</option>
+        <option value="campus">Campus</option>
+        <option value="about">About</option>
+      </select>
+    </label>
+    <div class="ws">
+      <section class="panel" id="panel-home">
+        <div class="hero-banner">
+          <div>
+            <span class="chip">Enrolment open for autumn</span>
+            <h1 style="margin:.8rem 0 .5rem">A Dublin academy that feels like a product, taught like a studio.</h1>
+            <p>Spanish, French, Japanese, and Arabic. Speak from hour one. Small live rooms, native tutors, and a path you can actually see.</p>
+            <p style="margin-top:1rem"><button class="btn" id="heroTrial">Book a free trial class</button></p>
+          </div>
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" alt="Students in a bright language classroom">
+        </div>
+        <div class="g4">
+          <article class="card"><h3>2,400+</h3><p>Students taught since 2018</p></article>
+          <article class="card"><h3>18 tutors</h3><p>Native speakers, trained coaches</p></article>
+          <article class="card"><h3>Max 8</h3><p>People in a live group room</p></article>
+          <article class="card"><h3>92%</h3><p>Renew after three months</p></article>
+        </div>
+        <div class="method">
+          <h2 class="sec">This week on campus</h2>
+          <p class="lede">Walk-in placement tests Tuesday and Thursday 12:00–14:00. Open polyglot café Saturday 11:00.</p>
+        </div>
+        <div class="rev">
+          <blockquote>“I had failed two evening classes elsewhere. Here I spoke Spanish in week one and kept a tutor who actually corrected me.” <cite>Aoife K. · Spanish B1</cite></blockquote>
+        </div>
+      </section>
+      <section class="panel" id="panel-courses" hidden>
+        <div class="ph"><div><h1>Language paths</h1><p>Four languages. CEFR-aligned. Progress bars you can take to an employer.</p></div><div class="chip">12 active cohorts</div></div>
+        <div class="level-row" id="levelFilter">
+          <button class="on" data-lv="all">All levels</button>
+          <button data-lv="Beginner">Beginner</button>
+          <button data-lv="Intermediate">Intermediate</button>
+          <button data-lv="Advanced">Advanced</button>
+        </div>
+        <div class="g2" id="courseGrid">
+          <article class="card course" data-lv="Beginner Intermediate Advanced">
+            <div class="flag">ES</div><h2>Spanish</h2>
+            <p>Conversation-first from A1 to C1. Weekly speaking labs and DELE tracks.</p>
+            <div class="badges"><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div>
+            <div class="prog"><span>Typical cohort progress</span><div class="bar"><i style="width:62%"></i></div></div>
+          </article>
+          <article class="card course" data-lv="Beginner Intermediate Advanced">
+            <div class="flag">FR</div><h2>French</h2>
+            <p>Parisian and Belgian tutors. DELF structure without the freeze.</p>
+            <div class="badges"><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div>
+            <div class="prog"><span>Typical cohort progress</span><div class="bar"><i style="width:44%"></i></div></div>
+          </article>
+          <article class="card course" data-lv="Beginner Intermediate Advanced">
+            <div class="flag">JA</div><h2>Japanese</h2>
+            <p>Kana to keigo. Script practice in every module. JLPT N5–N2.</p>
+            <div class="badges"><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div>
+            <div class="prog"><span>Typical cohort progress</span><div class="bar"><i style="width:28%"></i></div></div>
+          </article>
+          <article class="card course" data-lv="Beginner Intermediate Advanced">
+            <div class="flag">AR</div><h2>Arabic</h2>
+            <p>Modern Standard plus optional Levantine for real speech.</p>
+            <div class="badges"><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div>
+            <div class="prog"><span>Typical cohort progress</span><div class="bar"><i style="width:51%"></i></div></div>
+          </article>
+        </div>
+        <h2 class="sec" style="margin-top:1.8rem">How a path is built</h2>
+        <div class="path">
+          <article class="card"><h3>Placement</h3><p>20-minute oral + short written. You start at the right hour, not a marketing “beginner.”</p></article>
+          <article class="card"><h3>Core hours</h3><p>Live group or 1:1. Output every session: a recording, a dialogue, a short text.</p></article>
+          <article class="card"><h3>Review</h3><p>Tutor notes in the platform. You see the gap, then drill it next week.</p></article>
+        </div>
+      </section>
+      <section class="panel" id="panel-live" hidden>
+        <div class="ph"><div><h1>Live this week</h1><p>Join from Dublin or remote. Cameras on. Rooms of eight.</p></div></div>
+        <div class="tw">
+          <table>
+            <thead><tr><th>Day</th><th>Class</th><th>Instructor</th><th>Time (IST)</th><th>Room</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Mon</td><td>Spanish B1 Conversation</td><td>Elena Vázquez</td><td>18:00–19:00</td><td>Studio 2</td><td><button class="btn btn-t join">Join a Class</button></td></tr>
+              <tr><td>Tue</td><td>French A2 Grammar Lab</td><td>Camille Durand</td><td>12:30–13:30</td><td>Studio 1</td><td><button class="btn btn-t join">Join a Class</button></td></tr>
+              <tr><td>Wed</td><td>Japanese N4 Kanji Sprint</td><td>Haruka Sato</td><td>19:00–20:00</td><td>Online</td><td><button class="btn btn-t join">Join a Class</button></td></tr>
+              <tr><td>Thu</td><td>Arabic MSA Reading</td><td>Layla Haddad</td><td>17:30–18:30</td><td>Studio 3</td><td><button class="btn btn-t join">Join a Class</button></td></tr>
+              <tr><td>Fri</td><td>Pronunciation clinic (all langs)</td><td>House tutors</td><td>13:00–13:45</td><td>Lab</td><td><button class="btn btn-t join">Join a Class</button></td></tr>
+              <tr><td>Sat</td><td>Open polyglot café</td><td>Rotating</td><td>11:00–12:30</td><td>Cafe</td><td><button class="btn btn-t join">Join a Class</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="lede" style="margin-top:1rem" id="joinNote" hidden>Seat held. We will email the room link or desk number.</p>
+      </section>
+      <section class="panel" id="panel-tutors" hidden>
+        <div class="ph"><div><h1>Tutors</h1><p>Native speakers. Coaches, not lecturers. Rated after every block.</p></div></div>
+        <div class="g2">
+          <article class="card tutor">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Elena Vázquez" loading="lazy">
+            <h2>Elena Vázquez</h2><p>Native Spanish · Madrid</p>
+            <p>DELE prep, business Spanish, Iberian pronunciation.</p>
+            <div class="rating">4.9 · 128 reviews</div>
+          </article>
+          <article class="card tutor">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Camille Durand" loading="lazy">
+            <h2>Camille Durand</h2><p>Native French · Lyon</p>
+            <p>DELF, literature, everyday fluency for working adults.</p>
+            <div class="rating">4.8 · 96 reviews</div>
+          </article>
+          <article class="card tutor">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Haruka Sato" loading="lazy">
+            <h2>Haruka Sato</h2><p>Native Japanese · Osaka</p>
+            <p>JLPT N5–N2, keigo, travel Japanese, script labs.</p>
+            <div class="rating">5.0 · 74 reviews</div>
+          </article>
+          <article class="card tutor">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Layla Haddad" loading="lazy">
+            <h2>Layla Haddad</h2><p>Native Arabic · Beirut</p>
+            <p>MSA, Levantine dialect, media Arabic, script from day one.</p>
+            <div class="rating">4.9 · 81 reviews</div>
+          </article>
+        </div>
+      </section>
+      <section class="panel" id="panel-method" hidden>
+        <div class="ph"><div><h1>How we teach</h1><p>Output first. Then we fill the holes.</p></div></div>
+        <div class="hero-banner">
+          <img src="https://images.unsplash.com/photo-1522202176988-662883558268?auto=format&fit=crop&w=900&q=80" alt="Tutor working with a small group" loading="lazy">
+          <div>
+            <h2>Not a lecture hall</h2>
+            <p>Every hour has a product: a conversation, a recording, a short text. Tutors coach. Grammar arrives when it unblocks speech, not as a 40-slide pack.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <article><b>01</b><h3>Speak</h3><p class="lede">First ten minutes are always oral. No hiding behind a workbook.</p></article>
+          <article><b>02</b><h3>Notice</h3><p class="lede">Tutor marks three patterns, not thirty. You leave with a drill.</p></article>
+          <article><b>03</b><h3>Drill</h3><p class="lede">App homework is 15 minutes. If it takes an hour, we rewrote it wrong.</p></article>
+          <article><b>04</b><h3>Reuse</h3><p class="lede">Next class starts with last week’s language in a new scene.</p></article>
+        </div>
+      </section>
+      <section class="panel" id="panel-pricing" hidden>
+        <div class="ph"><div><h1>Choose a track</h1><p>Monthly. Pause any time. VAT included for EU private students.</p></div></div>
+        <div class="g3">
+          <article class="card pc">
+            <h2>Self-Paced</h2>
+            <p class="price">€29<span>/mo</span></p>
+            <ul><li>All course libraries</li><li>Progress tracking</li><li>Community forum</li><li>No live rooms</li></ul>
+            <button class="btn btn-g pick" data-plan="Self-Paced">Start self-paced</button>
+          </article>
+          <article class="card pc feat">
+            <div class="tag">Most chosen</div>
+            <h2>Group Classes</h2>
+            <p class="price">€79<span>/mo</span></p>
+            <ul><li>2 live classes / week</li><li>Max 8 students</li><li>Homework reviews</li><li>Self-paced included</li></ul>
+            <button class="btn pick" data-plan="Group Classes">Join a group</button>
+          </article>
+          <article class="card pc">
+            <h2>1-on-1 Coaching</h2>
+            <p class="price">€189<span>/mo</span></p>
+            <ul><li>4 private sessions</li><li>Custom curriculum</li><li>Exam coaching</li><li>Priority booking</li></ul>
+            <button class="btn btn-g pick" data-plan="1-on-1 Coaching">Book coaching</button>
+          </article>
+        </div>
+        <p class="lede" style="margin-top:1rem">Companies: ask for a six-seat table. We invoice net 14.</p>
+      </section>
+      <section class="panel" id="panel-campus" hidden>
+        <div class="ph"><div><h1>Campus &amp; hours</h1><p>5 Academic Row, Dublin, D02 XY45.</p></div></div>
+        <div class="campus">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Bright academy interior" loading="lazy">
+          <div class="g3">
+            <article class="card"><h3>Studios</h3><p>Four small rooms, acoustic panels, cameras for hybrid seats.</p></article>
+            <article class="card"><h3>Lab</h3><p>Recording booths for pronunciation homework you can replay.</p></article>
+            <article class="card"><h3>Cafe</h3><p>Saturday polyglot café. No English at the long table after 11:15.</p></article>
+          </div>
+          <div class="g2" style="margin-top:1rem">
+            <article class="card"><h3>Hours</h3><p>Mon–Thu 08:30–21:00<br>Fri 08:30–18:00<br>Sat 10:00–14:00<br>Sun closed</p></article>
+            <article class="card"><h3>Getting here</h3><p>Luas Green Line to Dawson. Five minutes on foot. Bike racks in the yard. Limited visitor parking — email first.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="panel" id="panel-about" hidden>
+        <div class="ph"><div><h1>The House</h1><p>Founded 2018 on Academic Row for working adults who were tired of apps that never speak back.</p></div></div>
+        <div class="about">
+          <div>
+            <h2>Teaching philosophy</h2>
+            <p>We do not treat languages as museums. Students speak from day one. Tutors are coaches. Every hour has an output.</p>
+            <p>Placement is honest. If you are A2, we will not sell you C1 because a quiz said so. Corporate groups get the same standard as evening adults.</p>
+            <div class="faq">
+              <details><summary>Do I need to live in Dublin?</summary><p>No. Live rooms are hybrid. Self-paced is fully remote. 1:1 can be online.</p></details>
+              <details><summary>Which CEFR levels do you cover?</summary><p>A1 to C1 for Spanish and French. A1 to B2 for Japanese and Arabic, with C1 by arrangement.</p></details>
+              <details><summary>Can my company pay?</summary><p>Yes. Purchase orders and monthly invoices. Training reports on request.</p></details>
+              <details><summary>What if I miss a live class?</summary><p>Recording stays up 72 hours. You can jump a makeup seat once per month.</p></details>
+            </div>
+          </div>
+          <div class="stats">
+            <div><strong>2,400+</strong><span>students taught</span></div>
+            <div><strong>18</strong><span>resident tutors</span></div>
+            <div><strong>4</strong><span>core languages</span></div>
+            <div><strong>92%</strong><span>renew after 3 months</span></div>
+          </div>
+        </div>
+        <h2 class="sec" style="margin-top:1.6rem">Student notes</h2>
+        <div class="rev">
+          <blockquote>“Haruka made kanji feel like a craft, not a punishment.” <cite>Mark T. · Japanese N4</cite></blockquote>
+          <blockquote>“We sent six engineers for French. They now take vendor calls without a translator.” <cite>HR, Dublin tech firm</cite></blockquote>
+        </div>
+      </section>
+    </div>
+    <footer class="strip">
+      <p>5 Academic Row, Dublin, D02 XY45, Ireland</p>
+      <p><a href="tel:+35315550198">+353 1 555 0198</a> · <a href="mailto:info@polyglothouse.ie">info@polyglothouse.ie</a></p>
+    </footer>
+  </div>
+  <button class="fab" id="trialBtn">Book a Free Trial Class</button>
+  <div class="modal" id="trialModal" hidden>
+    <div class="mc">
+      <button class="x" id="trialClose" aria-label="Close">&times;</button>
+      <h2>Book a free trial</h2>
+      <p>30 minutes with a tutor. No card.</p>
+      <form id="trialForm">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="lang" required>
+          <option value="">Language</option>
+          <option>Spanish</option><option>French</option><option>Japanese</option><option>Arabic</option>
+        </select>
+        <select name="plan">
+          <option value="">Interest (optional)</option>
+          <option>Self-Paced</option><option>Group Classes</option><option>1-on-1 Coaching</option>
+        </select>
+        <button class="btn" type="submit">Request trial</button>
+        <p class="ok" id="trialOk" hidden>Booked. We will email a calendar link.</p>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var buttons=document.querySelectorAll(".tabbar button");
+      var panels=document.querySelectorAll(".panel");
+      var select=document.getElementById("tabSelect");
+      var modal=document.getElementById("trialModal");
+      function show(id){
+        panels.forEach(function(p){var on=p.id==="panel-"+id;p.hidden=!on});
+        buttons.forEach(function(b){var on=b.dataset.p===id;b.classList.toggle("on",on)});
+        select.value=id;
+      }
+      buttons.forEach(function(b){b.addEventListener("click",function(){show(b.dataset.p)})});
+      select.addEventListener("change",function(){show(select.value)});
+      function openM(){modal.hidden=false}
+      document.getElementById("trialBtn").addEventListener("click",openM);
+      document.getElementById("heroTrial").addEventListener("click",openM);
+      document.getElementById("trialClose").addEventListener("click",function(){modal.hidden=true});
+      modal.addEventListener("click",function(e){if(e.target===modal)modal.hidden=true});
+      document.getElementById("trialForm").addEventListener("submit",function(e){e.preventDefault();document.getElementById("trialOk").hidden=false;e.target.reset()});
+      document.querySelectorAll(".pick").forEach(function(b){b.addEventListener("click",function(){openM();var s=document.querySelector('#trialForm [name=plan]');if(s)s.value=b.dataset.plan})});
+      document.querySelectorAll(".join").forEach(function(b){b.addEventListener("click",function(){document.getElementById("joinNote").hidden=false})});
+      document.getElementById("levelFilter").addEventListener("click",function(e){
+        if(e.target.tagName!=="BUTTON")return;
+        document.querySelectorAll("#levelFilter button").forEach(function(x){x.classList.remove("on")});
+        e.target.classList.add("on");
+        var lv=e.target.dataset.lv;
+        document.querySelectorAll(".course").forEach(function(c){c.style.display=(lv==="all"||c.dataset.lv.indexOf(lv)>-1)?"":"none"});
+      });
+    })();
+  </script>
+</body>
+</html>
